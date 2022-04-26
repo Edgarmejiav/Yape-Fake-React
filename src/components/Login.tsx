@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
@@ -6,25 +6,29 @@ export const Login = () => {
   let navigate = useNavigate();
 
   const [clave, setClave] = useState("");
-  function numero(numi: any) {
-    setClave((prevSate) => prevSate + numi);
-    console.log(clave);
 
+  function numero(numi: string) {
+    setClave((prev) => prev + numi);
+  }
+
+  useEffect(() => {
     if (clave.length == 6) {
       if (clave == "123456") {
         navigate("/home", { replace: true });
       } else {
-        navigate("/home", { replace: true });
         alert("contraseña equivocada");
         setClave("");
       }
     }
-  }
+  }, [clave]);
+
+  useEffect(() => {
+    ayudaboton();
+  }, []);
 
   function numeroback() {
     setClave(clave.substring(0, clave.length - 1));
   }
-
   function ayudaboton() {
     alert(
       "Esta webapp fue realizada para fines recreativos y de aprendizaje, descrubir una vulnerabilidad en Yape que incluye el nombre en el código QR.\n\nSi recibes pagos por medio de Códigos QR siempre verificar la transacción.\n\nClave:123456\n\nEl código fuente en mi perfil de github ;)\n\nLos logos y nombres comerciales no son de mi propiedad."
@@ -85,41 +89,41 @@ export const Login = () => {
             </ul>
           </div>
           <div className="divpadrow1">
-            <button onClick={() => numero(4)} className="pad">
+            <button onClick={() => numero("4")} className="pad">
               <p>4</p>
             </button>
-            <button onClick={() => numero(1)} className="pad">
+            <button onClick={() => numero("1")} className="pad">
               <p>1</p>
             </button>
-            <button onClick={() => numero(2)} className="pad">
+            <button onClick={() => numero("2")} className="pad">
               <p>2</p>
             </button>
           </div>
           <div className="divpadrow2">
-            <button onClick={() => numero(3)} className="pad">
+            <button onClick={() => numero("3")} className="pad">
               <p>3</p>
             </button>
-            <button onClick={() => numero(9)} className="pad">
+            <button onClick={() => numero("9")} className="pad">
               <p>9</p>
             </button>
-            <button onClick={() => numero(8)} className="pad">
+            <button onClick={() => numero("8")} className="pad">
               <p>8</p>
             </button>
           </div>
           <div className="divpadrow2">
-            <button onClick={() => numero(7)} className="pad">
+            <button onClick={() => numero("7")} className="pad">
               <p>7</p>
             </button>
-            <button onClick={() => numero(5)} className="pad">
+            <button onClick={() => numero("5")} className="pad">
               <p>5</p>
             </button>
-            <button onClick={() => numero(0)} className="pad">
+            <button onClick={() => numero("0")} className="pad">
               <p>0</p>
             </button>
           </div>
           <div className="divpadrow2">
             <div className="padinv"></div>
-            <button onClick={() => numero(6)} className="pad">
+            <button onClick={() => numero("6")} className="pad">
               <p>6</p>
             </button>
             <button onClick={numeroback} className="padinvback"></button>

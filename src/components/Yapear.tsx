@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 export const Yapear = () => {
+  let navigate = useNavigate();
+
   const [nombreya, setNombreya] = useState("");
   const [yapemonto, setYapemonto] = useState("");
   const [yapedescri, setYapedescri] = useState("");
@@ -77,7 +80,7 @@ export const Yapear = () => {
 
     items.push(item);
     localStorage.setItem("iteamYape", JSON.stringify(items));
-    // push("/Yapeado");
+    navigate("/Yapeado");
   }
   useEffect(() => {
     yapemonto.length > 0 ? setInputdisabled(false) : setInputdisabled(true);

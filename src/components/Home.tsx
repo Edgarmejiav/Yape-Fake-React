@@ -5,14 +5,19 @@ import { items } from "../data/data";
 import rq from "../img/qr.png";
 import flecha from "../img/flecha.svg";
 import ojo from "../img/ojo.svg";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [itemsLocal, setItemLocal] = useState([]);
+  let navigate = useNavigate();
   useEffect(() => {
     const items = localStorage.getItem("iteamYape");
     if (items) setItemLocal(JSON.parse(items!));
   }, []);
 
+  const handleEscaner = () => {
+    navigate("/yaperar", { replace: true });
+  };
   return (
     <Fragment>
       <div className="divprincipal">
@@ -76,7 +81,7 @@ export const Home = () => {
         </div>
         <div className="divprifooter">
           <div className="divesca">
-            <button /*  on:click={iraqr} */ className="botonesca">
+            <button onClick={handleEscaner} className="botonesca">
               <img className="imgqr" src={rq} alt="botonescanear" />
               Escanear QR
             </button>

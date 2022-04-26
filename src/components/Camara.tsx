@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect } from "react";
 import "../App.css";
 import Instascan from "../../src/instascan.min.js";
-import { QRcodigo } from "../../src/stores.js";
 
 export const Camara = () => {
-  useEffect(() => {
+  console.log("Instascan", Instascan);
+
+  /* useEffect(() => {
     let opts = {
       // Whether to scan continuously for QR codes. If false, use scanner.scan() to manually scan.
       // If true, the scanner emits the "scan" event when a QR code is scanned. Default true.
@@ -44,6 +45,9 @@ export const Camara = () => {
       scanner.stop();
       //  push("/Yapear");
     });
+
+    console.log(scanner);
+
     Instascan.Camera.getCameras()
       .then(function (cameras: any) {
         if (cameras.length > 0) {
@@ -55,7 +59,7 @@ export const Camara = () => {
       .catch(function (e: any) {
         console.error(e as any);
       });
-  }, []);
+  }, []); */
 
   return (
     <Fragment>
