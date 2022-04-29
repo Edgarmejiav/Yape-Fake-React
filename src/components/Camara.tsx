@@ -1,11 +1,11 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import "../App.css";
-import Instascan from "../../src/instascan.min.js";
+import { Camera } from "./CamaraJS";
+/* var Instascan = require("instascan");
+var QRcodigo = require("qrcode"); */
 
 export const Camara = () => {
-  console.log("Instascan", Instascan);
-
-  /* useEffect(() => {
+  /*   useEffect(() => {
     let opts = {
       // Whether to scan continuously for QR codes. If false, use scanner.scan() to manually scan.
       // If true, the scanner emits the "scan" event when a QR code is scanned. Default true.
@@ -59,22 +59,57 @@ export const Camara = () => {
       .catch(function (e: any) {
         console.error(e as any);
       });
-  }, []); */
+  }, []);
+ */
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const [cardImage, setCardImage] = useState();
 
   return (
     <Fragment>
+      {isCameraOpen && (
+        <Camera
+          onCapture={(blob: any) => setCardImage(blob)}
+          onClear={() => setCardImage(undefined)}
+        />
+      )}
+
+      {cardImage && (
+        <div>
+          <h2>Preview</h2>
+        </div>
+      )}
+
+      <footer>
+        <button onClick={() => setIsCameraOpen(true)}>Open Camera</button>
+        <button
+          onClick={() => {
+            setIsCameraOpen(false);
+            setCardImage(undefined);
+          }}
+        >
+          Close Camera
+        </button>
+      </footer>
+    </Fragment>
+    /*    <Fragment>
       <div className="divcamara">
-        <video height="100%" id="preview"></video>
+        <video
+          ref={videoRef}
+          onCanPlay={handleCanPlay}
+          autoPlay
+          playsInline
+          muted
+        />
+
         <div className="divcamaratexto">
           <h3>
             Coloque un código de barras en el interior del rectángulo del visor
             para escanear.
           </h3>
-          {/*           <img className="divcamaraover" alt="imagecover" src="over.svg" />
-           */}
+      
           <div className="divlinea animate__animated animate__flash animate__infinite"></div>
         </div>
       </div>
-    </Fragment>
+    </Fragment> */
   );
 };

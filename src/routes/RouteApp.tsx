@@ -13,6 +13,7 @@ export const RouteApp = () => {
       <Route path="/yapear" element={<Yapear />} />
       <Route path="/home" element={<Home />} />
       <Route path="/camara" element={<Camara />} />
+
       <Route path="/yapeado" element={<Yapeado />} />
       <Route path="*" element={<Login />} />
     </Routes>

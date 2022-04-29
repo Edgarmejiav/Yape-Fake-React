@@ -1,12 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import html2canvas from "html2canvas";
+var bodymovin = require("bodymovin");
 
-import html2canvas from "../../src/html2canvas.min.js";
 export const Yapeado = () => {
   let navigate = useNavigate();
   async function shareCanvas() {
-    const canvas = await html2canvas(document.getElementById("capture"));
+    const canvas = await html2canvas(document.getElementById("capture") as any);
     const dataUrl = canvas.toDataURL("imgage/png");
     const blob = await (await fetch(dataUrl)).blob();
     const filesArray = [
@@ -21,8 +22,8 @@ export const Yapeado = () => {
     navigator.share(shareData);
   }
   function subbotoncompartir() {
-    /*  bodymovin.goToAndStop(54, true);
-    shareCanvas(); */
+    bodymovin.goToAndStop(54, true);
+    shareCanvas();
   }
 
   function subbotoninicio() {
@@ -32,6 +33,16 @@ export const Yapeado = () => {
   function subbotonyapearte() {
     navigate("/camara");
   }
+
+  useEffect(() => {
+    var animation = bodymovin.loadAnimation({
+      container: document.getElementById("bm"),
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "https://assets7.lottiefiles.com/packages/lf20_4xt4sirg.json",
+    });
+  }, []);
 
   return (
     <Fragment>

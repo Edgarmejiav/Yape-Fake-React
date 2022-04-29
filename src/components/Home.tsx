@@ -16,7 +16,7 @@ export const Home = () => {
   }, []);
 
   const handleEscaner = () => {
-    navigate("/yaperar", { replace: true });
+    navigate("/yapear", { replace: true });
   };
   return (
     <Fragment>

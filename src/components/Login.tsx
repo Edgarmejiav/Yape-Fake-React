@@ -1,7 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-
+export function ayudaboton() {
+  alert(
+    "Esta webapp fue realizada para fines recreativos y de aprendizaje, descrubir una vulnerabilidad en Yape que incluye el nombre en el código QR.\n\nSi recibes pagos por medio de Códigos QR siempre verificar la transacción.\n\nClave:123456\n\nEl código fuente en mi perfil de github ;)\n\nLos logos y nombres comerciales no son de mi propiedad."
+  );
+}
 export const Login = () => {
   let navigate = useNavigate();
 
@@ -22,17 +26,8 @@ export const Login = () => {
     }
   }, [clave]);
 
-  useEffect(() => {
-    ayudaboton();
-  }, []);
-
   function numeroback() {
     setClave(clave.substring(0, clave.length - 1));
-  }
-  function ayudaboton() {
-    alert(
-      "Esta webapp fue realizada para fines recreativos y de aprendizaje, descrubir una vulnerabilidad en Yape que incluye el nombre en el código QR.\n\nSi recibes pagos por medio de Códigos QR siempre verificar la transacción.\n\nClave:123456\n\nEl código fuente en mi perfil de github ;)\n\nLos logos y nombres comerciales no son de mi propiedad."
-    );
   }
 
   return (

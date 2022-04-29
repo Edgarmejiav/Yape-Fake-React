@@ -10,7 +10,13 @@
     "@types/node": "^16.11.29",
     "@types/react": "^18.0.7",
     "@types/react-dom": "^18.0.0",
+    "bodymovin": "^4.13.0",
+    "html2canvas": "^1.4.1",
+    "instascan": "^1.0.0",
+    "qr-scanner": "^1.4.1",
+    "qrcode": "^1.5.0",
     "react": "^18.0.0",
+    "react-bodymovin": "^2.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
@@ -42,6 +48,17 @@
     ]
   },
   "devDependencies": {
-    "css-loader": "^6.7.1"
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "css-loader": "^6.7.1",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
   }
 }
