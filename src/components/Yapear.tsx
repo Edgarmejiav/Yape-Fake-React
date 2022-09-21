@@ -20,11 +20,11 @@ export const Yapear = () => {
     .join(" ");
 
   function botonatras() {
-    // push('/Camara');
+    navigate("/camara");
   }
 
   function botonequis() {
-    //	push('/Principal');
+    navigate("/home");
   }
 
   function subbotonyapearya() {

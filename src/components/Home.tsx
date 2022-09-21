@@ -16,6 +16,9 @@ export const Home = () => {
   }, []);
 
   const handleEscaner = () => {
+    navigate("/camara", { replace: true });
+  };
+  const handleyape = () => {
     navigate("/yapear", { replace: true });
   };
   return (
@@ -87,7 +90,7 @@ export const Home = () => {
             </button>
           </div>
           <div className="divyapear">
-            <button className="botonyapear">
+            <button className="botonyapear" onClick={handleyape}>
               {/*               <img className="imgflecha" src={flecha} alt="botonyapear" />
                */}{" "}
               Yapear
